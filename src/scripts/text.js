@@ -1,0 +1,1 @@
+let startJourneyText = "You wake up next to a decaying tree at the brink of night. You feel cold and in pain. You don't know why you're there, but you feel that if you wander enough, you'll figure out eventually."
