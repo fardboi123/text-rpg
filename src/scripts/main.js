@@ -15,4 +15,5 @@ function logText(text) {
     document.body.appendChild(newLog)
 }
 
-logText(startJourneyText)
+logText(gameText["start-game"])
+
