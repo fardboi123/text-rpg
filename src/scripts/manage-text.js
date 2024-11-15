@@ -8,9 +8,18 @@ function selectRandomArrayValue(array) {
     }
 }
 
-function logText(text) {
+function logText(text, parent) {
     let newLog = document.createElement("h3")
     newLog.textContent = text
+
+    if (parent) {
+        parent.appendChild(newLog)
+    } else {
+        document.body.appendChild(newLog)
+    }
     
-    document.body.appendChild(newLog)
+}
+
+function listChoices(list) {
+    game.currentChoices = list
 }

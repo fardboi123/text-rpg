@@ -1,5 +1,3 @@
-let gameText = {}
-
 function loadModule(name) {
     let loadedModule = document.createElement("script")
     loadedModule.src = `src/modules/${name}.js`
@@ -16,25 +14,25 @@ function initializeScript(name) {
     return loadedScript
 }
 
-function addText(file) {
-    fetchPromise(file).then(text => {
-        gameText[file.split(".")[0]] = text
+function addText(file, type) {
+    fetchPromise(file, type).then(text => {
+        gameText[type][file.split(".")[0]] = text
     })
 }
 
-async function fetchPromise(file) {
+async function fetchPromise(file, type) {
     try {
         let fetchPromise
         let fetchResponse
         
         try {
-            fetchPromise = await fetch(`lib/text/${file}`)
+            fetchPromise = await fetch(`lib/${type}/${file}`)
             fetchResponse = await fetchPromise.json()
             console.log(`Added json file ${file} to text data.`)
             return fetchResponse
         }
         catch {
-            fetchPromise = await fetch(`lib/text/${file}`)
+            fetchPromise = await fetch(`lib/${type}/${file}`)
             fetchResponse = await fetchPromise.text()
             console.log(`Added txt file ${file} to text data.`)
             return fetchResponse
@@ -45,15 +43,24 @@ async function fetchPromise(file) {
     }
 }
 
-loadModule("text-files")
+let gameText = {
+    text: {},
+    choices: {}
+}
+
+loadModule("files-to-load")
+loadModule("choice-functions")
 
 setTimeout(() => {
     for (let i = 0; i < textToLoad.length; i++) {
-        addText(textToLoad[i])
+        addText(textToLoad[i], "text")
     }
-}, 150)
+    for (let i = 0; i < choicesToLoad.length; i++) {
+        addText(choicesToLoad[i], "choices")
+    }
+}, 200)
 
 setTimeout(() => {
     initializeScript("manage-text")
     initializeScript("main")
-}, 300)
+}, 400)
