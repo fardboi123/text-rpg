@@ -1,9 +1,10 @@
 let game = new Game()
 let input = document.querySelector("input")
+let question = null
 
 logText(text["start-game"])
-logText(text["choice-intro"].default)
-listChoices(choices["default"])
+question = logText(text["choice-intro"].first)
+listChoices(choices.default)
 
 input.addEventListener("keyup", (keyCode) => {
     if (!game.currentChoices || keyCode.key != "Enter" || !parseFloat(input.value)) {
@@ -14,10 +15,13 @@ input.addEventListener("keyup", (keyCode) => {
     let choiceChosen = game.currentChoices[indexChosen - 1]
 
     if (choiceChosen) {
-        logText(`${choiceChosen.Text} has been chosen.`)
-        choiceChosen.Function()
         input.value = ""
         game.currentChoices = null
+        question.remove()
+        
+        choiceChosen.Function()
+        question = logText(text["choice-intro"].default)
+        listChoices(choices.default)
     }
 })
 

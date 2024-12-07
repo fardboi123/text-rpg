@@ -1,9 +1,15 @@
 let choices = {
     "default": [
         {
-            "Text": "Proceed...",
+            "Text": "Proceed.",
             "Function": () => {
                 proceed()
+            }
+        },
+        {
+            "Text": "Rest.",
+            "Function": () => {
+                rest()
             }
         }
     ]

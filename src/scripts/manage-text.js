@@ -10,8 +10,6 @@ function selectRandomArrayValue(array) {
 
 function logText(text, parent) {
     let newLog = document.createElement("h3")
-
-    console.log(typeof(text))
     
     switch (typeof(text)) {
         case "object":
@@ -31,6 +29,8 @@ function logText(text, parent) {
     } else {
         document.body.appendChild(newLog)
     }
+
+    return newLog
 }
 
 function listChoices(list) {

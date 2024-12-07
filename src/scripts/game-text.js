@@ -8,7 +8,7 @@ let text = {
     ],
 
     "choice-intro": {
-        "default": "What shall you do?",
+        "default": "What shall you do now?",
         "first": "So, what's your first move? Type the number of your choice in the box."
     }
 }
