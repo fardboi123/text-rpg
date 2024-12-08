@@ -1,5 +1,6 @@
 class Game {
     constructor() {
+        this.choicesMade = 0
         this._currentChoices = null
         this.distanceTravelled = 0
     }
@@ -28,4 +29,32 @@ class Game {
             }
         }
     }
+}
+
+class Player {
+    constructor() {
+        this.inventory = []
+        this.stats = {
+            "max-health": 100,
+            "health": 100,
+        }
+    }
+
+    get health() {
+        return this.stats.health
+    }
+
+    set health(value) {
+        this.stats.health = value
+    }
+}
+
+class Item {
+    constructor(name) {
+        this.name = name
+    }
+}
+
+class Weapon extends Item {
+
 }

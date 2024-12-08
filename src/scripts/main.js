@@ -1,7 +1,9 @@
 let game = new Game()
+let player = new Player()
 let input = document.querySelector("input")
 let question = null
 
+acquireItem(misc_items.map)
 logText(text["start-game"])
 question = logText(text["choice-intro"].first)
 listChoices(choices.default)
@@ -17,6 +19,7 @@ input.addEventListener("keyup", (keyCode) => {
     if (choiceChosen) {
         input.value = ""
         game.currentChoices = null
+        game.choicesMade += 1
         question.remove()
         
         choiceChosen.Function()

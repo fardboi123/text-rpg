@@ -9,7 +9,7 @@ function selectRandomArrayValue(array) {
 }
 
 function logText(text, parent) {
-    let newLog = document.createElement("h3")
+    let newLog = document.createElement("p")
     
     switch (typeof(text)) {
         case "object":

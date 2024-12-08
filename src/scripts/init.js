@@ -7,7 +7,7 @@ function initializeScript(name) {
 }
 
 initializeScript("game-text")
+initializeScript("manage-text")
 initializeScript("gameplay-functions")
 initializeScript("game-choices")
-initializeScript("manage-text")
 initializeScript("main")
