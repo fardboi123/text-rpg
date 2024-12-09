@@ -3,7 +3,7 @@ let player = new Player()
 let input = document.querySelector("input")
 let question = null
 
-acquireItem(misc_items.map)
+player.inventory.push(misc_items.map, misc_items.compass)
 logText(text["start-game"])
 question = logText(text["choice-intro"].first)
 listChoices(choices.default)

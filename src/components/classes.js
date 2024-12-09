@@ -1,8 +1,14 @@
+class Vector2 {
+    constructor(x, y) {
+        this.x = x
+        this.y = y
+    }
+}
+
 class Game {
     constructor() {
         this.choicesMade = 0
         this._currentChoices = null
-        this.distanceTravelled = 0
     }
 
     get currentChoices() {
@@ -33,6 +39,7 @@ class Game {
 
 class Player {
     constructor() {
+        this._coordinates = new Vector2(0, 0)
         this.inventory = []
         this.stats = {
             "max-health": 100,
@@ -40,6 +47,14 @@ class Player {
         }
     }
 
+    get coordinates() {
+        return this._coordinates
+    }
+
+    set coordinates(value) {
+        this._coordinates = value
+    }
+    
     get health() {
         return this.stats.health
     }
@@ -49,6 +64,17 @@ class Player {
     }
 }
 
+class Location {
+    constructor(coordinates, space) {
+        this.coordinates = coordinates
+        this.worldSpace = space
+    }
+}
+
+class Sublocation extends Location {
+    
+}
+
 class Item {
     constructor(name) {
         this.name = name
@@ -56,5 +82,17 @@ class Item {
 }
 
 class Weapon extends Item {
+    
+}
+
+class Equipment extends Item {
+
+}
+
+class Consumable extends Item {
+
+}
+
+class Sword extends Weapon {
 
 }

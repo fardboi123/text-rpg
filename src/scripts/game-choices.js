@@ -17,7 +17,8 @@ let choices = {
                         logText([
                             "While resting back on the tree, you stumble upon a machete.",
                             "It's tip is broken in half, and the blade is a bit dull,",
-                            "But it's still usable, and you could perhaps get it fixed one day."
+                            "but you notice that you don't have any sort of weapon yourself,",
+                            "so this would have to do for the time being."
                         ])
                         acquireItem(weapons["broken-machete"])
                         break

@@ -3,5 +3,6 @@ let weapons = {
 }
 
 let misc_items = {
-    "map": new Item("Map")
+    "map": new Item("Map"),
+    "compass": new Item("Compass")
 }

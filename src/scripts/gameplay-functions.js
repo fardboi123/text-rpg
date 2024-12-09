@@ -1,8 +1,8 @@
 let choiceFunctions = {
     proceed() {
         let travelDistance = Math.round(Math.max(40, Math.random() * 150))
-        game.distanceTravelled += travelDistance
-        logText(`You have just travelled ${travelDistance} meters.`)
+        player.coordinates.y += travelDistance
+        logText(`You have just travelled ${travelDistance} meters north.`)
     },
     check_inventory(){
         logText("You have the following:")
