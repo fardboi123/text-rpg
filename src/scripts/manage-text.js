@@ -33,6 +33,14 @@ function logText(text, parent) {
     return newLog
 }
 
+function logQuestion(text, parent) {
+    if (question) {
+        question.remove()
+    }
+    question = logText(text, parent)
+}
+
+
 function listChoices(list) {
     game.currentChoices = list
 }

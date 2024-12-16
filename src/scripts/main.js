@@ -3,10 +3,11 @@ let player = new Player()
 let input = document.querySelector("input")
 let question = null
 
-player.inventory.push(misc_items.map, misc_items.compass)
+player.inventory.push(structuredClone(misc_items.map), structuredClone(misc_items.compass))
 logText(text["start-game"])
 question = logText(text["choice-intro"].first)
 listChoices(choices.default)
+findCurrentArea()
 
 input.addEventListener("keyup", (keyCode) => {
     if (!game.currentChoices || keyCode.key != "Enter" || !parseFloat(input.value)) {
@@ -20,11 +21,11 @@ input.addEventListener("keyup", (keyCode) => {
         input.value = ""
         game.currentChoices = null
         game.choicesMade += 1
-        question.remove()
-        
-        choiceChosen.Function()
-        question = logText(text["choice-intro"].default)
+
+        logQuestion(text["choice-intro"].default)
         listChoices(choices.default)
+        choiceChosen.Function()
+        findCurrentArea()
     }
 })
 
